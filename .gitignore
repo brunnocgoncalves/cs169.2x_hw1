@@ -3,6 +3,10 @@ config/mail.yml
 *~
 db/*.sqlite*
 db/schema.rb
+db/db_development
+db/db_test
+hw-submit
+setupenv.sh
 .*.swp
 .*.swo
 .DS_Store

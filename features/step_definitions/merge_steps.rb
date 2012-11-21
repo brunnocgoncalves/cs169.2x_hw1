@@ -9,3 +9,15 @@ Given /the following users exist/ do |users_table|
     User.create!(user)
   end
 end
+
+When /^I am logged into the admin panel as "(.*)"$/ do |login|
+  visit '/accounts/login'
+  fill_in 'user_login', :with => login
+  fill_in 'user_password', :with => login + "password"
+  click_button 'Login'
+  if page.respond_to? :should
+    page.should have_content('Login successful')
+  else
+    assert page.has_content?('Login successful')
+  end
+end

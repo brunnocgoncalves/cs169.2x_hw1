@@ -6,30 +6,23 @@ Feature: Merge Articles
   Background:
     Given the blog is set up
     And the following articles exist:
-    | title         | author        | body                                          | published |
-    | A first post  | First Author  | The text in the first blog post.              | true      |
-    | A second post | Second Author | Followed by the test in the second blog post. | true      |
+    | title         | author        | body                                         | published |
+    | A first post  | First Author  | The text in the first blog post.             | true      |
+    | A second post | Second Author | Followed by the text in a similar blog post. | true      |
     And the following users exist:
-    | login         | password          | email                    | name             | profile_id |
-    | contributor   | somepassword      | contributor@domain.org   | Blog Contributor | 3          |
-    | administrator | someotherpassword | administrator@domain.org | Blog Admin       | 1          |
+    | login         | password              | email                    | name             | profile_id |
+    | contributor   | contributorpassword   | contributor@domain.org   | Blog Contributor | 3          |
+    | administrator | administratorpassword | administrator@domain.org | Blog Admin       | 1          |
 
+  Scenario: An admin can see the option to merge articles
+    Given I am logged into the admin panel as "administrator"
+    And I visit the the edit page for "A first post"
+    Then I should see "Merge Articles"
 
-
-  #   And I am logged into the admin panel
-  #   And I am visiting an article edit page
-
-  # Scenario: An admin can merge articles
-  #   Given I am an admin
-  #   Then I should see "Merge Articles"
-
-  # Scenario: A non-admin cannot see the option to merge articles
-  #   Given I am not an admin
-  #   Then I should not see "Merge Articles"
-
-  # Scenario: A non-admin cannot merge articles
-  #   Given I am not an admin
-  #   Then I should not be able to merge articles
+  Scenario: A non-admin cannot see the option to merge articles
+    Given I am logged into the admin panel as "contributor"
+    And I visit the the edit page for "A first post"
+    Then I should not see "Merge Articles"
 
   # Scenario: Merged article should contain text of both articles
   #   Given that the first article contains the text "Foo bar."

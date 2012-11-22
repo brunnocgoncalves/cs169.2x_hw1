@@ -103,7 +103,9 @@ class Article < Content
       merged_article = Article.create(:title => article_1.title,
                                       :author => article_1.author,
                                       :body => article_1.body + article_2.body,
-                                      :user_id => article_1.user_id)
+                                      :user_id => article_1.user_id,
+                                      :published => true,
+                                      :allow_comments => true)
       comments_1 = Feedback.find_all_by_article_id(article_1_id)
       comments_2 = Feedback.find_all_by_article_id(article_2_id)
 

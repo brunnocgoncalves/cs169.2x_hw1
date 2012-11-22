@@ -111,14 +111,14 @@ class Article < Content
 
       unless comments_1.blank?
         comments_1.each do |comment|
-          comment.article_id = merged_article_id
+          comment.article_id = merged_article.id
           comment.save
         end
       end
 
       unless comments_2.blank?
         comments_2.each do |comment|
-          comment.article_id = merged_article_id
+          comment.article_id = merged_article.id
           comment.save
         end
       end

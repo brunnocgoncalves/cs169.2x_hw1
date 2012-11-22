@@ -22,6 +22,6 @@ When /^I am logged into the admin panel as "(.*)"$/ do |login|
   end
 end
 
-When /^I visit the the edit page for "(.*)"$/ do |title|
+When /^I (re)?visit the the edit page for "(.*)"$/ do |re, title|
   visit 'admin/content/edit/' + Article.find_by_title(title).id.to_s
 end

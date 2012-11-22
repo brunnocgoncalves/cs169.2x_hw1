@@ -24,11 +24,12 @@ Feature: Merge Articles
     And I visit the the edit page for "A first post"
     Then I should not see "Merge Articles"
 
-  # Scenario: Merged article should contain text of both articles
-  #   Given that the first article contains the text "Foo bar."
-  #   And the second article contains the text "Baz qux."
-  #   And the articles are merged
-  #   Then the merged article should contain the text "Foo bar. Baz qux."
+  Scenario: Merged article should contain text of both articles
+    Given I am logged into the admin panel as "administrator"
+    And I visit the the edit page for "A first post"
+    And I attempt to merge with "A second post"
+    And I revisit the the edit page for "A first post"
+    Then I should see the "The text in the first blog post.Followed by the text in a similar blog post."
 
   # Scenario: Merged article should contain comments of both articles
   #   Given that the first article contains comments with id: 1, 2

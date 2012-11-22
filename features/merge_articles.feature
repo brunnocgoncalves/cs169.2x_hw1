@@ -11,7 +11,7 @@ Feature: Merge Articles
     | A second post | Second Author | Followed by the text in a similar blog post. | true      |
     And the following users exist:
     | login         | password              | email                    | name             | profile_id |
-    | contributor   | contributorpassword   | contributor@domain.org   | Blog Contributor | 3          |
+    | publisher     | publisherpassword     | publisher@domain.org     | Blog Publisher   | 2          |
     | administrator | administratorpassword | administrator@domain.org | Blog Admin       | 1          |
 
   Scenario: An admin can see the option to merge articles
@@ -20,7 +20,7 @@ Feature: Merge Articles
     Then I should see "Merge Articles"
 
   Scenario: A non-admin cannot see the option to merge articles
-    Given I am logged into the admin panel as "contributor"
+    Given I am logged into the admin panel as "publisher"
     And I visit the the edit page for "A first post"
     Then I should not see "Merge Articles"
 

@@ -21,3 +21,7 @@ When /^I am logged into the admin panel as "(.*)"$/ do |login|
     assert page.has_content?('Login successful')
   end
 end
+
+When /^I visit the the edit page for "(.*)"$/ do |title|
+  visit 'admin/content/edit/' + Article.find_by_title(title).id.to_s
+end

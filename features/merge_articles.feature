@@ -29,7 +29,7 @@ Feature: Merge Articles
     And I visit the the edit page for "A first post"
     And I attempt to merge with "A second post"
     And I revisit the the edit page for "A first post"
-    Then I should see the "The text in the first blog post.Followed by the text in a similar blog post."
+    Then I should see "The text in the first blog post.Followed by the text in a similar blog post."
 
   # Scenario: Merged article should contain comments of both articles
   #   Given that the first article contains comments with id: 1, 2

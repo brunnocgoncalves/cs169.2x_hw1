@@ -25,3 +25,8 @@ end
 When /^I (re)?visit the the edit page for "(.*)"$/ do |re, title|
   visit 'admin/content/edit/' + Article.find_by_title(title).id.to_s
 end
+
+When /^I attempt to merge with "(.*)"$/ do |title|
+  fill_in 'merge_with', :with => Article.find_by_title(title).id
+  click_button 'Merge'
+end

@@ -13,7 +13,7 @@ end
 When /^I am logged into the admin panel as "(.*)"$/ do |login|
   visit '/accounts/login'
   fill_in 'user_login', :with => login
-  fill_in 'user_password', :with => login + "password"
+  fill_in 'user_password', :with => login + "_pw"
   click_button 'Login'
   if page.respond_to? :should
     page.should have_content('Login successful')

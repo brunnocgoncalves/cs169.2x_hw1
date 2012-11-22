@@ -10,9 +10,9 @@ Feature: Merge Articles
     | A first post  | First Author  | The text in the first blog post.             | true      |
     | A second post | Second Author | Followed by the text in a similar blog post. | true      |
     And the following users exist:
-    | login         | password              | email                    | name             | profile_id |
-    | publisher     | publisherpassword     | publisher@domain.org     | Blog Publisher   | 2          |
-    | administrator | administratorpassword | administrator@domain.org | Blog Admin       | 1          |
+    | login         | password         | email                    | name             | profile_id |
+    | publisher     | publisher_pw     | publisher@domain.org     | Blog Publisher   | 2          |
+    | administrator | administrator_pw | administrator@domain.org | Blog Admin       | 1          |
 
   Scenario: An admin can see the option to merge articles
     Given I am logged into the admin panel as "administrator"
